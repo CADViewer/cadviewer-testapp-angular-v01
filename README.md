@@ -1,27 +1,55 @@
-# CadviewerTestappAngularV01
+# Installing CADViewer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.6.
+## CADViewer Install instructions - Angular JS
 
-## Development server
+Install CADViewer: *npm i cadviewer-angular* 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+There are some general image, style and XML configuration files that CADViewer needs during execution, please download [angular_src_asset_folder_cadviewer_6_4.zip](https://cadviewer.com/downloads/handlers/angular/angular_src_asset_folder_cadviewer_6_4.zip) and place in your Angular /src/assets/ project folder.   
 
-## Code scaffolding
+In *angular.json* , reference the cadviewer related stylesheets from /src/assets/:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+            "styles": [
+              "src/styles.css",
+              "src/assets/cadviewer/app/css/bootstrap.min.css",              
+              "src/assets/cadviewer/app/css/jquery.qtip.min.css",
+              "src/assets/cadviewer/app/css/jquery-ui-1.11.4.min.css",
+              "src/assets/cadviewer/app/css/bootstrap-multiselect.css",
+              "src/assets/cadviewer/app/css/cvjs_6.1.0.css"
+            ],
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Download the Node JS CAD Conversion server (or alternatively PHP, .NET or Servlet implementations):  Go to:  https://cadviewer.com/download/, register and receive email and then download from **CADViewer Handler/Connector Scripts**.
 
-## Running unit tests
+Download the CAD Converter AutoXchange 2020:  Go to: https://cadviewer.com/download/, register and receive email and then download from **AutoXchange 2020 Downloads**.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Use the Github [cadviewer-testapp-angular-v01](https://github.com/CADViewer/cadviewer-testapp-angular-v01) as reference sample. This sample illustrates initialization and loading of CADViewer as well as illustrates the functional interface for highlight and adding interactive image content to the CAD canvas. 
 
-## Running end-to-end tests
+Note that the path book-keeping is important for proper initialization, where the ServerBackEndUrl and ServerLocation is the location and Url of the CAD Server and ServerUrl is the Url of the Angular application encapulating CADViewer. 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+		var ServerBackEndUrl = "http://localhost:3000/";
+		var ServerUrl = "http://localhost:4200/";
+		var ServerLocation = "c:/nodejs/cadviewerServer/";
+
+The CADViewer Angular JS general install instructions are at: https://cadviewer.com/cadviewertechdocs/handlers/angular/
+
+**LICENSE: TMS 1.0:** Use freely on localhost. Commercial use requires licensing, both using entirely or in parts. Forbidden to remove license key check.  Contact Tailor Made Software, https://cadviewer.com/contact, for more information. 
+
+Use the [CADViewer API](https://cadviewer.com/cadviewerproapi/global.html) to open and manipulate drawings in your application. 
+
+Read the Guide on how to **[create hotspots](https://cadviewer.com/highlight/main/)** (Space Objects), it outlines how spaces can be processed on a drawing to create interactive objects. 
+
+Read the Guide on how to **[modify hotspots](https://cadviewer.com/highlight2/main/)**  (Space Objects), this will help you work with the code in this sample. 
+
+Read the general documentation on **CADViewer** is found at: https://cadviewer.com/cadviewertechdocs/.
+
+The general documentation on **AutoXchange 2020** is found at: https://tailormade.com/ax2020techdocs/.
+
+The CADViewer API is found at: https://cadviewer.com/cadviewerproapi/global.html.
+
+
+## CADViewer Install instructions - React JS
+
+On React, Install CADViewer with: *npm i cadviewer*, see instructions in:  https://www.npmjs.com/package/cadviewer
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
