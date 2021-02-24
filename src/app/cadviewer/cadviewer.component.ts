@@ -642,7 +642,8 @@ mouseupSubscription$: Subscription;
         //mySpaceArray = [{space: "02.288"},{space: "02.289"},{space: "02.290"}];
         
 //        FileName = ServerBackEndUrl+ "/content/drawings/dwg/hq17_2spaces.dwg";	
-        FileName = ServerBackEndUrl+ "/content/drawings/dwg/BRA_Alta Vila_02_CkIn_06082020.dwg";
+//        FileName = ServerBackEndUrl+ "/content/drawings/dwg/BRA_Alta Vila_02_CkIn_06082020.dwg";
+//        FileName = ServerBackEndUrl+ "/content/drawings/dwg/BRA_Alta_Vila_02_CkIn_06082020.svg";
         FileName = ServerBackEndUrl+ "/content/drawings/dwg/hq17_.dwg";	    
       }
         
