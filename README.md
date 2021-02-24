@@ -4,7 +4,7 @@
 
 Install CADViewer: *npm i cadviewer-angular* 
 
-Install Angular App testing CADViewer API canvas: *npm i cadviewer-testapp-angular-v1*
+Install Angular App testing CADViewer API canvas: *npm i cadviewer-testapp-angular-v01*
 
 There are some general image, style and XML configuration files that CADViewer needs during execution, please download [angular_src_asset_folder_cadviewer_6_4.zip](https://cadviewer.com/downloads/handlers/angular/angular_src_asset_folder_cadviewer_6_4.zip) and place in your Angular /src/assets/ project folder.   
 
