@@ -4,9 +4,13 @@
 
 1A: Install Angular App reference sample testing CADViewer API Canvas: *npm i cadviewer-testapp-angular-v01*
 
-1B: There are some general image, style and XML configuration files that CADViewer needs during execution, please download [angular_src_asset_folder_cadviewer_6_4.zip](https://cadviewer.com/downloads/handlers/angular/angular_src_asset_folder_cadviewer_6_4.zip) and place in your Angular /src/assets/ project folder.   
+As an alternative:
 
-1C: In *angular.json* , reference the cadviewer related stylesheets from /src/assets/:
+2A: Install CADViewer canvas API standalone with: *npm i cadviewer-angular*   
+
+2B: There are some general image, style and XML configuration files that CADViewer needs during execution, please download [angular_src_asset_folder_cadviewer_6_4.zip](https://cadviewer.com/downloads/handlers/angular/angular_src_asset_folder_cadviewer_6_4.zip) and place in your Angular /src/assets/ project folder.   
+
+2C: In *angular.json* , reference the cadviewer related stylesheets from /src/assets/:
 
             "styles": [
               "src/styles.css",
@@ -17,10 +21,6 @@
               "src/assets/cadviewer/app/css/cvjs_6.1.0.css"
             ],
 
-
-As an alternative:
-
-2: Install CADViewer canvas API standalone with: *npm i cadviewer-angular*   
 
 
 For both method 1: and 2:, then do the following: 
