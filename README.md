@@ -2,13 +2,11 @@
 
 ## CADViewer Install instructions - Angular JS
 
-Install CADViewer: *npm i cadviewer-angular* 
+1A: Install Angular App reference sample testing CADViewer API Canvas: *npm i cadviewer-testapp-angular-v01*
 
-Install Angular App testing CADViewer API canvas: *npm i cadviewer-testapp-angular-v01*
+1B: There are some general image, style and XML configuration files that CADViewer needs during execution, please download [angular_src_asset_folder_cadviewer_6_4.zip](https://cadviewer.com/downloads/handlers/angular/angular_src_asset_folder_cadviewer_6_4.zip) and place in your Angular /src/assets/ project folder.   
 
-There are some general image, style and XML configuration files that CADViewer needs during execution, please download [angular_src_asset_folder_cadviewer_6_4.zip](https://cadviewer.com/downloads/handlers/angular/angular_src_asset_folder_cadviewer_6_4.zip) and place in your Angular /src/assets/ project folder.   
-
-In *angular.json* , reference the cadviewer related stylesheets from /src/assets/:
+1C: In *angular.json* , reference the cadviewer related stylesheets from /src/assets/:
 
             "styles": [
               "src/styles.css",
@@ -18,6 +16,14 @@ In *angular.json* , reference the cadviewer related stylesheets from /src/assets
               "src/assets/cadviewer/app/css/bootstrap-multiselect.css",
               "src/assets/cadviewer/app/css/cvjs_6.1.0.css"
             ],
+
+
+As an alternative:
+
+2: Install CADViewer canvas API standalone with: *npm i cadviewer-angular*   
+
+
+For both method 1: and 2:, then do the following: 
 
 
 Download the Node JS CAD Conversion server (or alternatively PHP, .NET or Servlet implementations):  Go to:  https://cadviewer.com/download/, register and receive email and then download from **CADViewer Handler/Connector Scripts**.

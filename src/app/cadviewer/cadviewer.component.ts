@@ -34,6 +34,7 @@ function cvjs_OnLoadEnd(){
    cadviewer.cvjs_LayerOff("EC1 Tenant Names");
    cadviewer.cvjs_LayerOff("EC1 UDA Design Capacity");
    cadviewer.cvjs_LayerOff("EC1 UDA Is Secured");
+   cadviewer.cvjs_LayerOff("EC1 Space Square Footages");
  
    /*
     cvjs_multiSelectStart();
@@ -643,8 +644,9 @@ mouseupSubscription$: Subscription;
         
 //        FileName = ServerBackEndUrl+ "/content/drawings/dwg/hq17_2spaces.dwg";	
 //        FileName = ServerBackEndUrl+ "/content/drawings/dwg/BRA_Alta Vila_02_CkIn_06082020.dwg";
-//        FileName = ServerBackEndUrl+ "/content/drawings/dwg/BRA_Alta_Vila_02_CkIn_06082020.svg";
+        FileName = ServerBackEndUrl+ "/content/drawings/dwg/BRA_Alta_Vila_02_CkIn_06082020.svg";
         FileName = ServerBackEndUrl+ "/content/drawings/dwg/hq17_.dwg";	    
+
       }
         
 
@@ -839,10 +841,9 @@ mouseupSubscription$: Subscription;
          
            // cadviewer.cvjs_conversion_addAXconversionParameter ("RL", "IDB");
            // cadviewer.cvjs_conversion_addAXconversionParameter ("TL", "IDB_REF");	
-         
-         
+    
            // NOTE ABOVE: THESE SETTINGS ARE FOR SERVER CONTROLS FOR CONVERTING DWG, DXF, DWF files
-         
+    
            // Load file - needs the svg div name and name and path of file to load
            cadviewer.cvjs_LoadDrawing("floorPlan", FileName );
           
@@ -1018,7 +1019,17 @@ public select_drag_rect_stop = function() {
       overlap= cadviewer.cvjs_rect_doOverlap( this.cvjs_firstX, this.cvjs_firstY, this.cvjs_lastX, this.cvjs_lastY, mybox.x, mybox.y, mybox.x+mybox.width, mybox.y+mybox.height);
       if (overlap) {
         var fullJsonObject = cadviewer.cvjs_returnSpaceObjectID(spaceObjectIds[spc]);
-        myReturnArray.push({SpaceID: fullJsonObject.id, Area: fullJsonObject.area} )
+
+        // check if the object is part of DONOTTOUCH array
+        var donottouchflag = false;
+        for (var i = 0; i < mySpaceArray_doNotTouch.length; i++){
+          if ( mySpaceArray_doNotTouch[i] == fullJsonObject.id ){
+            donottouchflag = true;
+            i = mySpaceArray_doNotTouch.length;  // we finish the loop
+          }
+        }
+        if (!donottouchflag)
+          myReturnArray.push({SpaceID: fullJsonObject.id, Area: fullJsonObject.area} )
 
 //        selected_list+= spaceObjectIds[spc]+";";
       }
