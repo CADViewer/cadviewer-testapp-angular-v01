@@ -18,7 +18,7 @@ As an alternative:
               "src/assets/cadviewer/app/css/jquery.qtip.min.css",
               "src/assets/cadviewer/app/css/jquery-ui-1.11.4.min.css",
               "src/assets/cadviewer/app/css/bootstrap-multiselect.css",
-              "src/assets/cadviewer/app/css/cvjs_6.1.0.css"
+              "src/assets/cadviewer/app/css/cvjs_6.4.css"
             ],
 
 
@@ -26,7 +26,7 @@ As an alternative:
 For both method 1: and 2:, then do the following: 
 
 
-Download the Node JS CAD Conversion server (or alternatively PHP, .NET or Servlet implementations):  Go to:  https://cadviewer.com/download/, register and receive email and then download from **CADViewer Handler/Connector Scripts**.
+Download the NodeJS CAD Conversion server (or alternatively the PHP, .NET or Servlet Server implementations):  Go to:  https://cadviewer.com/download/, register and receive email and then download from **CADViewer Handler/Connector Scripts**.
 
 Download the CAD Converter AutoXchange 2020:  Go to: https://cadviewer.com/download/, register and receive email and then download from **AutoXchange 2020 Downloads**.
 
