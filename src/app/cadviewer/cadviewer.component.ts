@@ -35,7 +35,14 @@ function cvjs_OnLoadEnd(){
    cadviewer.cvjs_LayerOff("EC1 UDA Design Capacity");
    cadviewer.cvjs_LayerOff("EC1 UDA Is Secured");
    cadviewer.cvjs_LayerOff("EC1 Space Square Footages");
- 
+   cadviewer.cvjs_LayerOff("ACC BH AltaVila -2PAV$0$MBN");	
+
+   cadviewer.cvjs_LayerOff("ACC BH AltaVila -2PAV$0$MBN");	
+
+
+   cadviewer.cvjs_setLayerColor("EC1 Space Numbers", "#FF4500");  // orange red
+
+
    /*
     cvjs_multiSelectStart();
     console.log("multi select start");
@@ -730,7 +737,7 @@ mouseupSubscription$: Subscription;
         
 //        FileName = ServerBackEndUrl+ "/content/drawings/dwg/hq17_2spaces.dwg";	
 //        FileName = ServerBackEndUrl+ "/content/drawings/dwg/BRA_Alta Vila_02_CkIn_06082020.dwg";
-        FileName = ServerBackEndUrl+ "/content/drawings/dwg/BRA_Alta_Vila_02_CkIn_06082020.svg";
+
         FileName = ServerBackEndUrl+ "/content/drawings/dwg/hq17_.dwg";	    
 
       }
@@ -1241,6 +1248,17 @@ public customTooltips(){
   }
   
 };
+
+
+public customColorLayer(){
+
+  var layer= ((document.getElementById("layerName") as HTMLInputElement).value);
+  var hex_color= ((document.getElementById("layerColor") as HTMLInputElement).value);
+  cadviewer.cvjs_setLayerColor(layer, hex_color);
+
+}
+
+
 
 public customLoadDrawing(){
 
