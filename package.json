@@ -1,6 +1,6 @@
 {
   "name": "cadviewer-testapp-angular-v01",
-  "version": "1.0.12",
+  "version": "1.0.16",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -18,7 +18,7 @@
     "@angular/platform-browser": "~10.0.9",
     "@angular/platform-browser-dynamic": "~10.0.9",
     "@angular/router": "~10.0.9",
-    "cadviewer-angular": "^6.4.29",
+    "cadviewer-angular": "^6.4.30",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
