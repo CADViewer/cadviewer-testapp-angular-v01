@@ -1,7 +1,7 @@
 import { Component, OnInit, ɵgetComponentViewDefinitionFactory } from '@angular/core';
 import { fromEvent, Observable, Subscription } from "rxjs";
 
-import * as cadviewer from "cadviewer-angular";
+import * as cadviewer from "cadviewer";
 
 
 // ALL CALLBACK METHODS FROM CADVIEWER MUST BE DECLARED AS EXPORT METHODS

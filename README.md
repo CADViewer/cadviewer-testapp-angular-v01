@@ -6,7 +6,7 @@
 
 As an alternative:
 
-2A: Install CADViewer canvas API standalone with: *npm i cadviewer-angular*   
+2A: Install CADViewer canvas API standalone with: *npm i cadviewer*   
 
 2B: There are some general image, style and XML configuration files that CADViewer needs during execution, please download [angular_src_asset_folder_cadviewer_6_4.zip](https://cadviewer.com/downloads/handlers/angular/angular_src_asset_folder_cadviewer_6_4.zip) and place in your Angular /src/assets/ project folder.   
 
@@ -56,8 +56,8 @@ The general documentation on **AutoXchange 2020** is found at: https://tailormad
 The CADViewer API is found at: https://cadviewer.com/cadviewerproapi/global.html.
 
 
-## CADViewer Install instructions - React JS
+## CADViewer Install instructions - React JS and VueJS
 
-On React, Install CADViewer with: *npm i cadviewer*, see instructions in:  https://www.npmjs.com/package/cadviewer
+On ReactJS and VueJS, Install CADViewer with: *npm i cadviewer*, see instructions in:  https://www.npmjs.com/package/cadviewer
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
