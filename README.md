@@ -4,6 +4,9 @@
 
 1A: Install Angular App reference sample testing CADViewer API Canvas: *npm i cadviewer-testapp-angular-v01*
 
+**NOTE: Please use [Github](https://github.com/CADViewer/cadviewer-testapp-angular-v01) to download/clone this sample: [cadviewer-testapp-angular-v01](https://github.com/CADViewer/cadviewer-testapp-angular-v01) as the preferred route!** 
+
+
 As an alternative:
 
 2A: Install CADViewer canvas API standalone with: *npm i cadviewer*   
