@@ -29,7 +29,7 @@
               "src/assets/cadviewer/app/css/jquery.qtip.min.css",
               "src/assets/cadviewer/app/css/jquery-ui-1.11.4.min.css",
               "src/assets/cadviewer/app/css/bootstrap-multiselect.css",
-              "src/assets/cadviewer/app/css/cvjs_6.4.css"
+              "src/assets/cadviewer/app/css/cvjs_6.5.css"
             ],
             "scripts": []
           },
