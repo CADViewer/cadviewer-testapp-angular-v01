@@ -694,13 +694,12 @@ mouseupSubscription$: Subscription;
   
   public init_CADViewer(params){
 
-/*
       // If CADViewer is on a child/nested component, it will fire off the initialization multiple times, 
       // therefore we clean the component and init array on repeat call to the component 
       if (isCADViewerInitializedInAngular){
           cadviewer.cvjs_emptyMainCanvasInAngular("floorPlan");
       } 
-  */    
+      
       cadviewer.cvjs_debugMode(true);
 
       cadviewer.cvjs_setServerLocationURL(ServerLocation, ServerUrl);
