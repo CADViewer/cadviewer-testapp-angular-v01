@@ -398,22 +398,22 @@ var hatchtype = 0;
 
 // connecting to Servlets Server
 var ServerBackEndUrl = "http://localhost:8080/cadviewer/";
-var ServerLocation = "c:/xampp/tomcat/webapps/cadviewer/";
+var ServerLocation = "";
 
 
 // connecting to PHP Server
 var ServerBackEndUrl = "http://localhost/cadviewer/";
-var ServerLocation = "c:/xampp/htdocs/cadviewer/";
+var ServerLocation = "";
 
 // Connecting to .NET Server
 var ServerBackEndUrl = "http://localhost:53737/";
-var ServerLocation = "c:/visualstudio/cadviewer/";
+var ServerLocation = "";
 
 
 // Standard NodeJS Server
 var ServerUrl = "http://localhost:4200/";
-var ServerBackEndUrl = "http://127.0.0.1:3000/";
-var ServerLocation = "c:/nodejs/cadviewer-conversion-server/";
+var ServerBackEndUrl = "http://localhost:3000/";
+var ServerLocation = "";
 
 
 

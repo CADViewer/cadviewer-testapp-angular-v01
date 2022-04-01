@@ -1,6 +1,6 @@
 {
   "name": "cadviewer-testapp-angular-v01",
-  "version": "6.8.8",
+  "version": "6.8.87",
   "description": "CADViewer - JavaScript CAD Viewer sample implementation for Angular",
   "scripts": {
     "ng": "ng",
@@ -19,7 +19,7 @@
     "@angular/platform-browser": "~10.0.9",
     "@angular/platform-browser-dynamic": "~10.0.9",
     "@angular/router": "~10.0.9",
-    "cadviewer": "^6.8.8",
+    "cadviewer": "^6.8.87",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
@@ -32,13 +32,13 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
-    "jasmine-core": "~3.5.0",
+    "jasmine-core": "3.8",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.0.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~3.3.0",
-    "karma-jasmine-html-reporter": "^1.5.0",
+    "karma-jasmine-html-reporter": "^1.7.0",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
