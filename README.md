@@ -91,7 +91,7 @@ Note that the path book-keeping is important for proper initialization, where th
 
 		var ServerBackEndUrl = "http://localhost:3000/";
 		var ServerUrl = "http://localhost:4200/";
-		var ServerLocation = "c:/nodejs/cadviewer-conversion-server/";
+		var ServerLocation = "";  // for dev purposes can be set: "c:/nodejs/cadviewer-conversion-server/";
 
 The CADViewer Angular JS general install instructions are at: https://cadviewer.com/cadviewertechdocs/handlers/angular/
 
