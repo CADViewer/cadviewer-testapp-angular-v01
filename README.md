@@ -55,18 +55,19 @@ The CADViewer API is found at: https://cadviewer.com/cadviewerproapi/global.html
 ## Install Instruction for Angular
 
 1A: Install CADViewer: *npm i cadviewer* 
+  
+1B: In *angular.json* , reference the cadviewer related stylesheets from ./node_modules/cadviewer:
 
-1B: There are some general image, style and XML configuration files that CADViewer needs during execution, please download [angular_src_asset_folder_cadviewer_6_7.zip](https://cadviewer.com/downloads/handlers/angular/angular_src_asset_folder_cadviewer_6_7.zip) and place in your Angular /src/assets/ project folder.   
-
-1C: In *angular.json* , reference the cadviewer related stylesheets from /src/assets/:
-
-            "styles": [
+             "styles": [
               "src/styles.css",
-              "src/assets/cadviewer/app/css/bootstrap.min.css",              
-              "src/assets/cadviewer/app/css/jquery.qtip.min.css",
-              "src/assets/cadviewer/app/css/jquery-ui-1.11.4.min.css",
-              "src/assets/cadviewer/app/css/bootstrap-multiselect.css",
-              "src/assets/cadviewer/app/css/cvjs_6.5.css"
+              "./node_modules/cadviewer/app/css/cvjs_7.css",
+              "./node_modules/cadviewer/app/css/bootstrap.min.css",
+              "./node_modules/cadviewer/app/css/bootstrap-cadviewer.css",
+              "./node_modules/cadviewer/app/css/bootstrap-multiselect.css",
+              "./node_modules/cadviewer/app/css/jquery.qtip.min.css",
+              "./node_modules/cadviewer/app/css/font-awesome.min.css",
+              "./node_modules/cadviewer/app/css/glyphs_cvjs.css",
+              "./node_modules/cadviewer/app/css/jquery-ui-1.11.4.min.css"
             ],
 
 As an alternative:
