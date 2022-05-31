@@ -25,11 +25,14 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/cadviewer/app/css/bootstrap.min.css",              
-              "src/assets/cadviewer/app/css/jquery.qtip.min.css",
-              "src/assets/cadviewer/app/css/jquery-ui-1.11.4.min.css",
-              "src/assets/cadviewer/app/css/bootstrap-multiselect.css",
-              "src/assets/cadviewer/app/css/cvjs_6.5.css"
+              "./node_modules/cadviewer/app/css/cvjs_7.css",
+              "./node_modules/cadviewer/app/css/bootstrap.min.css",
+              "./node_modules/cadviewer/app/css/bootstrap-cadviewer.css",
+              "./node_modules/cadviewer/app/css/bootstrap-multiselect.css",
+              "./node_modules/cadviewer/app/css/jquery.qtip.min.css",
+              "./node_modules/cadviewer/app/css/font-awesome.min.css",
+              "./node_modules/cadviewer/app/css/glyphs_cvjs.css",
+              "./node_modules/cadviewer/app/css/jquery-ui-1.11.4.min.css"
             ],
             "scripts": []
           },

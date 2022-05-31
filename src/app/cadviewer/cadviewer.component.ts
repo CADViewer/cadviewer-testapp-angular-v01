@@ -9,6 +9,10 @@ function cvjs_OnLoadEnd(){
   // generic callback method, called when the drawing is loaded
   // here you fill in your stuff, call DB, set up arrays, etc..
   // this method MUST be retained as a dummy method! - if not implemeted -
+
+  console.log("ONLOADEND!");
+
+
   cadviewer.cvjs_resetZoomPan("floorPlan");
 
   var user_name = "Bob Smith";
@@ -81,7 +85,160 @@ function cvjs_click(id, handle, entity){};
 function cvjs_dblclick(id, handle, entity){};
 function cvjs_measurementCallback(){};
 function cvjs_CalibrateMeasurementCallback(){};
-function cvjs_graphicalObjectOnChange(type, graphicalObject, spaceID){};
+
+
+
+
+
+var myobject;
+var myredlineObjects = {};
+var mystickynoteObjects = {};
+var myredlinestickynoteObjects = {};
+
+// Callback Method on Creation and Delete 
+//export function cvjs_graphicalObjectOnChange(type, graphicalObject, spaceID){
+function cvjs_graphicalObjectOnChange(type, graphicalObject, spaceID){
+	// do something with the graphics object created! 
+//	window.alert("CALLBACK: cvjs_graphicalObjectOnChange: "+type+" "+graphicalObject+" "+spaceID+" indexSpace: "+graphicalObject.toLowerCase().indexOf("space"));
+	console.log("CALLBACK: cvjs_graphicalObjectOnChange: "+type+" "+graphicalObject+" "+spaceID+" indexSpace: "+graphicalObject.toLowerCase().indexOf("space"));
+
+
+	if (graphicalObject.toLowerCase().indexOf("space")!==-1){
+		myobject = cadviewer.cvjs_returnSpaceObjectID(spaceID);
+		console.log("This Object "+myobject.id+" with name "+myobject.name+" has Parent: "+myobject.parent);
+	}
+
+
+
+	// SPACE OBJECTS
+
+
+	if (type == 'Create' && graphicalObject.toLowerCase().indexOf("space")>-1 && graphicalObject.toLowerCase().indexOf("circle")==-1){
+			
+		/**
+		 * Return a JSON structure of all content of a given ID: <br>
+		* 	var jsonStructure =  	{	"path": path,
+		*								"tags": tags, 
+		*								"node": node, 
+		*								"area": area, 
+		*								"outerhtml": outerHTML, 
+		*								"occupancy": occupancy, 
+		*								"name": name, 
+		*								"type": type, 
+		*								"id": id, 
+		*								"defaultcolor": defaultcolor, 
+		*								"highlightcolor": highlightcolor, 
+		*								"selectcolor": selectcolor, 
+		*								"layer": layer, 
+		*								"group": group, 
+		*								"linked": linked, 
+		*								"attributes": attributes, 
+		*								"attributeStatus": attributeStatus, 
+		*								"displaySpaceObjects": displaySpaceObjects,
+		*								"translate_x": translate_x, 
+		*								"translate_y": translate_y, 
+		*								"scale_x": scale_x ,
+		*								"scale_y": scale_y ,
+		*								"rotate": rotate, 
+		*								"transform": transform, 
+		*								"svgx": svgx, 
+		*								"svgy": svgx, 
+		*								"dwgx": dwgx, 
+		*								"dwgy": dwgy , 
+		*                               "customContent" : mycustomcontent,
+		*                               "pageNumber" : "",
+		*                               "pageName" : "",
+		*                               "block" : "",
+		*                               "blockAttributeId" : "",
+		*                               "blockAttributeCount" : ""
+		*                               "clickhandler" : "enable",
+		*                               "parent" : "none",
+		*                               }
+ 		* @param {string} spaceID - Id of the Space Object to return
+		* @return {Object} jsonSpaceObject - Object with the entire space objects content
+		*/
+
+		myobject = cadviewer.cvjs_returnSpaceObjectID(spaceID);
+		// I can save this object into my database, and then use command 
+		// cvjs_setSpaceObjectDirect(jsonSpaceObject) 
+		// when I am recreating the content of the drawing at load
+		// for the fun of it, display the SVG geometry of the space:			
+		// console.log("This is the SVG: "+myobject.outerhtml);
+
+
+
+		// NOTE! - When an object is created, the application programmer can simply give 
+		// the object a name matching a database, if needed. 
+		/*
+		var newName = "ID"+Math.floor(Math.random() * 1000000);
+		console.log("OnloadEnd new object created name:"+myobject.name+ " id:"+myobject.id+" new name"+newName)
+		cadviewer.cvjs_changeSpaceObjectName(myobject.id, newName)
+		*/
+
+
+	}
+
+	if (type == 'Delete' && graphicalObject.toLowerCase().indexOf("space")>-1 ){
+		// remove this entry from my DB
+
+		window.alert("We have deleted: "+spaceID)
+	}
+
+
+	if (type == 'Move' && graphicalObject.toLowerCase().indexOf("space")>-1 ){
+		// remove this entry from my DB
+
+		console.log("This object has been moved: "+spaceID)		
+		myobject = cadviewer.cvjs_returnSpaceObjectID(spaceID);
+
+	}
+	
+	// REDLINE & STICKYNOTE OBJECTS
+
+
+		// REDLINES
+		if (type == 'Create' && graphicalObject.toLowerCase().indexOf("redline")>-1 ){
+			myredlineObjects = cadviewer.cvjs_returnAllRedlineObjects();   // cadviewer 6
+            myredlinestickynoteObjects = cadviewer.cvjs_returnAllRedlineStickyNoteObjects();  //cadviewer 7
+			console.log("red: "+JSON.stringify(myredlineObjects));
+			// 7.0.15
+		}
+
+		if (type == 'Delete' && graphicalObject.toLowerCase().indexOf("redline")>-1 ){		
+			myredlineObjects = cadviewer.cvjs_returnAllRedlineObjects();   // cadviewer 6
+            myredlinestickynoteObjects = cadviewer.cvjs_returnAllRedlineStickyNoteObjects();  //cadviewer 7
+			console.log("red: "+JSON.stringify(myredlineObjects));
+		}			
+
+		if (type == 'Create' && graphicalObject.toLowerCase().indexOf("stickynote")>-1){
+			myredlineObjects = cadviewer.cvjs_returnAllRedlineObjects();   // cadviewer 6
+            myredlinestickynoteObjects = cadviewer.cvjs_returnAllRedlineStickyNoteObjects();  //cadviewer 7
+			console.log("note:"+JSON.stringify(mystickynoteObjects));
+		}
+
+
+		if (type == 'Delete' && graphicalObject.toLowerCase().indexOf("stickynote")>-1 ){
+			myredlineObjects = cadviewer.cvjs_returnAllRedlineObjects();   // cadviewer 6
+            myredlinestickynoteObjects = cadviewer.cvjs_returnAllRedlineStickyNoteObjects();  //cadviewer 7
+			console.log("note:"+JSON.stringify(mystickynoteObjects));
+		}
+
+
+		if (type == 'Edit' && graphicalObject.toLowerCase().indexOf("stickynote")>-1 ){
+			myredlineObjects = cadviewer.cvjs_returnAllRedlineObjects();   // cadviewer 6
+            myredlinestickynoteObjects = cadviewer.cvjs_returnAllRedlineStickyNoteObjects();  //cadviewer 7
+			console.log("note:"+JSON.stringify(mystickynoteObjects));
+		}
+
+		if (type == 'Move' && graphicalObject.toLowerCase().indexOf("stickynote")>-1 ){
+			myredlineObjects = cadviewer.cvjs_returnAllRedlineObjects();   // cadviewer 6
+            myredlinestickynoteObjects = cadviewer.cvjs_returnAllRedlineStickyNoteObjects();  //cadviewer 7
+			console.log("note:"+JSON.stringify(mystickynoteObjects));
+		}
+
+}
+
+
 function cvjs_Url_callback(){};
 function cvjs_loadSpaceImage_UserConfiguration(floorplan_div){};
 function cvjs_NoObjectSelected(){};
@@ -894,7 +1051,7 @@ mouseupSubscription$: Subscription;
           
            // NOTE BELOW: THESE SETTINGS ARE FOR SERVER CONTROLS FOR UPLOAD OF REDLINES
            
-           cadviewer.cvjs_setRedlinesAbsolutePath(ServerUrl+'/content/redlines/fileloader_610/', ServerLocation+'/content/redlines/fileloader_610/');
+           cadviewer.cvjs_setRedlinesAbsolutePath(ServerUrl+'/content/redlines/v7/', ServerLocation+'/content/redlines/v7/');
          
            // NOTE ABOVE: THESE SETTINGS ARE FOR SERVER CONTROLS FOR UPLOAD OF REDLINES
          
@@ -930,7 +1087,7 @@ mouseupSubscription$: Subscription;
 //          cadviewer.cvjs_conversion_addAXconversionParameter("TL", "EC1 Space Numbers");		 
       
      //      cadviewer.cvjs_conversion_addAXconversionParameter("last", "");		 
-           cadviewer.cvjs_conversion_addAXconversionParameter("fpath", ServerLocation + "/converters/ax2020/windows/fonts/");		 
+      //     cadviewer.cvjs_conversion_addAXconversionParameter("fpath", ServerLocation + "/converters/ax2023/windows/fonts/");		 
          
          
            // cadviewer.cvjs_conversion_addAXconversionParameter ("RL", "IDB");
@@ -1303,6 +1460,16 @@ public highlight_space_object(myspace, scale){
 // */
 //
 // function cvjs_AddTextOnSpaceObject(txtLayer, Id, leftScale, textStringArr, textStyleArr, scaleTextArr, hexColorTextArr, clipping, centering){
+
+
+
+// This is the function that set redlines and notes captured in graphicalObjectOnChange
+
+public getJSONredlinesandnotes(){
+
+  cadviewer.cvjs_setAllRedlineStickyNoteObjects(myredlinestickynoteObjects);
+
+}
 
 
 // This is the function that illustrates how to label text inside room polygons
