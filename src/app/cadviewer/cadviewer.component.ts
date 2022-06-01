@@ -860,18 +860,8 @@ mouseupSubscription$: Subscription;
   */    
       cadviewer.cvjs_debugMode(true);
 
-      cadviewer.cvjs_setServerLocationURL(ServerLocation, ServerUrl);
-      cadviewer.cvjs_setServerBackEndUrl(ServerBackEndUrl);      
-  
-      //cadviewer.cvjs_setHandlerSettings('Angular', "floorPlan");   // standard angular + nodejs
 
-
-      // USER Controlled - 
-      cadviewer.cvjs_setHandlers_FrontEnd('NodeJS', 'Angular','floorPlan');   // user controlled back-end
-      //cadviewer.cvjs_setHandlers_FrontEnd('PHP', 'Angular','floorPlan');
-      //cadviewer.cvjs_setHandlers_FrontEnd('dotNET', 'Angular','floorPlan');
-      //cadviewer.cvjs_setHandlers_FrontEnd('Servlets', 'Angular','floorPlan');
-
+      cadviewer.cvjs_setAllServerPaths_and_Handlers(ServerBackEndUrl, ServerUrl, ServerLocation, "NodeJS", "Angular", "floorPlan");
 
       // PATH and FILE to be loaded, can be in formats DWG, DXF, DWF, SVG , JS, DGN, PCF, JPG, GIF, PNG
 //      FileName = ServerBackEndUrl+ "/content/drawings/dwg/BRA_Alta Vila_02_CkIn_06082020.dwg";
@@ -1051,49 +1041,23 @@ mouseupSubscription$: Subscription;
           
            // NOTE BELOW: THESE SETTINGS ARE FOR SERVER CONTROLS FOR UPLOAD OF REDLINES
            
-           cadviewer.cvjs_setRedlinesAbsolutePath(ServerUrl+'/content/redlines/v7/', ServerLocation+'/content/redlines/v7/');
+           cadviewer.cvjs_setRedlinesAbsolutePath(ServerBackEndUrl+'/content/redlines/v7/', ServerLocation+'/content/redlines/v7/');
+           cadviewer.cvjs_setServerFileLocation_AbsolutePaths(ServerLocation+'/content/drawings/dwg/', ServerBackEndUrl+'content/drawings/dwg/',"","");
+           cadviewer.cvjs_setSpaceObjectsAbsolutePath(ServerBackEndUrl+'/content/spaceObjects/demoUsers/', ServerLocation+'/content/spaceObjects/demoUsers/');
+
          
-           // NOTE ABOVE: THESE SETTINGS ARE FOR SERVER CONTROLS FOR UPLOAD OF REDLINES
-         
-           // NOTE BELOW: THESE SETTINGS ARE FOR SERVER CONTROLS FOR UPLOAD OF FILES AND FILE MANAGER
-         
-           // I am setting the full path to the location of the floorplan drawings (typically  /home/myserver/drawings/floorplans/)
-           // and the relative location of floorplans drawings relative to my current location
-           // as well as the URL to the location of floorplan drawings with username and password if it is protected "" "" if not
-         
-           // cadviewer.cvjs_setServerFileLocation(ServerLocation+'/content/drawings/dwg/', '../content/drawings/dwg/', ServerUrl+'/content/drawings/dwg/',"","");
-           cadviewer.cvjs_setServerFileLocation_AbsolutePaths(ServerLocation+'/content/drawings/dwg/', ServerUrl+'content/drawings/dwg/',"","");
-           // NOTE ABOVE: THESE SETTINGS ARE FOR SERVER CONTROLS FOR UPLOAD OF FILES AND FILE MANAGER
-           
-        
-           // NOTE BELOW: THESE SETTINGS ARE FOR SERVER CONTROLS OF SPACE OBJECTS
-           // Set the path to folder location of Space Objects
-           cadviewer.cvjs_setSpaceObjectsAbsolutePath(ServerUrl+'/content/spaceObjects/demoUsers/', ServerLocation+'/content/spaceObjects/demoUsers/');
-           // NOTE ABOVE: THESE SETTINGS ARE FOR SERVER CONTROLS OF SPACE OBJECTS
-         
-           // NOTE BELOW: THESE SETTINGS ARE FOR SERVER CONTROLS FOR CONVERTING DWG, DXF, DWF files
-         
+           // NOTE BELOW: THESE SETTINGS ARE FOR SERVER CONTROLS FOR CONVERTING DWG, DXF, DWF files         
            // settings of Converter Path, Controller and Converter Name are done in the XXXHandlerSettings.js files
          
            cadviewer.cvjs_conversion_clearAXconversionParameters();
            cadviewer.cvjs_conversion_addAXconversionParameter("last", "");		 
      
           cadviewer.cvjs_conversion_addAXconversionParameter("RL", "RM_");		 
-           cadviewer.cvjs_conversion_addAXconversionParameter("TL", "RM_TXT");		 
+          cadviewer.cvjs_conversion_addAXconversionParameter("TL", "RM_TXT");		 
      
           cadviewer.cvjs_conversion_addAXconversionParameter("LA", "");		 
-//
-//          cadviewer.cvjs_conversion_addAXconversionParameter("RL", "EC1 Space Polygons");		 
-//          cadviewer.cvjs_conversion_addAXconversionParameter("TL", "EC1 Space Numbers");		 
-      
-     //      cadviewer.cvjs_conversion_addAXconversionParameter("last", "");		 
-      //     cadviewer.cvjs_conversion_addAXconversionParameter("fpath", ServerLocation + "/converters/ax2023/windows/fonts/");		 
-         
-         
-           // cadviewer.cvjs_conversion_addAXconversionParameter ("RL", "IDB");
-           // cadviewer.cvjs_conversion_addAXconversionParameter ("TL", "IDB_REF");	
-    
-           // NOTE ABOVE: THESE SETTINGS ARE FOR SERVER CONTROLS FOR CONVERTING DWG, DXF, DWF files
+
+          // NOTE ABOVE: THESE SETTINGS ARE FOR SERVER CONTROLS FOR CONVERTING DWG, DXF, DWF files
     
            // Load file - needs the svg div name and name and path of file to load
            cadviewer.cvjs_LoadDrawing("floorPlan", FileName );
