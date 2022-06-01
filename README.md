@@ -55,18 +55,19 @@ The CADViewer API is found at: https://cadviewer.com/cadviewerproapi/global.html
 ## Install Instruction for Angular
 
 1A: Install CADViewer: *npm i cadviewer* 
+  
+1B: In *angular.json* , reference the cadviewer related stylesheets from ./node_modules/cadviewer:
 
-1B: There are some general image, style and XML configuration files that CADViewer needs during execution, please download [angular_src_asset_folder_cadviewer_6_7.zip](https://cadviewer.com/downloads/handlers/angular/angular_src_asset_folder_cadviewer_6_7.zip) and place in your Angular /src/assets/ project folder.   
-
-1C: In *angular.json* , reference the cadviewer related stylesheets from /src/assets/:
-
-            "styles": [
+             "styles": [
               "src/styles.css",
-              "src/assets/cadviewer/app/css/bootstrap.min.css",              
-              "src/assets/cadviewer/app/css/jquery.qtip.min.css",
-              "src/assets/cadviewer/app/css/jquery-ui-1.11.4.min.css",
-              "src/assets/cadviewer/app/css/bootstrap-multiselect.css",
-              "src/assets/cadviewer/app/css/cvjs_6.5.css"
+              "./node_modules/cadviewer/app/css/cvjs_7.css",
+              "./node_modules/cadviewer/app/css/bootstrap.min.css",
+              "./node_modules/cadviewer/app/css/bootstrap-cadviewer.css",
+              "./node_modules/cadviewer/app/css/bootstrap-multiselect.css",
+              "./node_modules/cadviewer/app/css/jquery.qtip.min.css",
+              "./node_modules/cadviewer/app/css/font-awesome.min.css",
+              "./node_modules/cadviewer/app/css/glyphs_cvjs.css",
+              "./node_modules/cadviewer/app/css/jquery-ui-1.11.4.min.css"
             ],
 
 As an alternative:
@@ -90,7 +91,7 @@ Note that the path book-keeping is important for proper initialization, where th
 
 		var ServerBackEndUrl = "http://localhost:3000/";
 		var ServerUrl = "http://localhost:4200/";
-		var ServerLocation = "c:/nodejs/cadviewer-conversion-server/";
+		var ServerLocation = "";  // for dev purposes can be set: "c:/nodejs/cadviewer-conversion-server/";
 
 The CADViewer Angular JS general install instructions are at: https://cadviewer.com/cadviewertechdocs/handlers/angular/
 
@@ -104,7 +105,7 @@ Read the Guide on how to **[modify hotspots](https://cadviewer.com/highlight2/ma
 
 Read the general documentation on **CADViewer** is found at: https://cadviewer.com/cadviewertechdocs/.
 
-The general documentation on **AutoXchange 2022** is found at: https://tailormade.com/ax2020techdocs/.
+The general documentation on **AutoXchange 2023** is found at: https://tailormade.com/ax2020techdocs/.
 
 The CADViewer API is found at: https://cadviewer.com/cadviewerproapi/global.html.
 
